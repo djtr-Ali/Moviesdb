@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import react , { useEffect } from "react";
 import './App.css';
+import { Route , Switch } from "react-router-dom";
+import MoviesList from "./moviesList.js";
+import DetailPage from "./DetailPage";
+import PreviewPage from "./previewPage";
+import { useDispatch} from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+  
+  useEffect(()=>{
+    dispatch({type:"GET_MOVIES"})
+  },[])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <>
+    <div className='main_header'>
+      <h1>🎥 MOVIES DB</h1>
     </div>
-  );
+  
+    <Switch>
+      <Route exact path = '/' component = {MoviesList} />
+      <Route exact path = '/detail/:id' component = {DetailPage}/>
+      <Route exact path = '/preview' component = {PreviewPage} />
+    </Switch>
+  </>
+  )
 }
 
 export default App;

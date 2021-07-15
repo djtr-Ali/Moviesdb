@@ -1,0 +1,21 @@
+.detail{
+  color:white;
+}
+.main_detail{
+  display: flex;
+  justify-content: space-around;
+  margin:0px 30px;
+}
+.detail_content{
+  color:white;
+  margin:0px 30px;
+}
+.detail_content > h1{
+  margin:20px 0px;
+}
+.detail_content > p{
+  margin:20px 0px;
+}
+.detail_content > h4{
+  margin:20px 0px;
+}
